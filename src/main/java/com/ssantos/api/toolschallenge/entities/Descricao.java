@@ -1,21 +1,24 @@
-package com.ssantos.api.toolschallenge.entrities;
+package com.ssantos.api.toolschallenge.entities;
 
 import com.ssantos.api.toolschallenge.enums.StatusEnum;
+
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 @Entity
 public class Descricao {
-
-	private Double valor;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long idDescricao;
+	private double valor;
 	private String dataHora;
 	private String estabelecimento;
 	private String nsu;
 	private String codigoAutorizacao;
 	private StatusEnum status;
-
-	public Descricao() {
-
-	}
 
 	public Double getValor() {
 		return valor;
@@ -63,6 +66,14 @@ public class Descricao {
 
 	public void setStatus(StatusEnum status) {
 		this.status = status;
+	}
+
+	public Long getId() {
+		return idDescricao;
+	}
+
+	public void setId(Long idDescricao) {
+		this.idDescricao = idDescricao;
 	}
 
 }

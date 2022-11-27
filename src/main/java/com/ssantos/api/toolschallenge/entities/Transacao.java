@@ -1,4 +1,4 @@
-package com.ssantos.api.toolschallenge.entrities;
+package com.ssantos.api.toolschallenge.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,10 +14,6 @@ public class Transacao {
 	private String cartao;
 	private FormaPagamento formapagamento;
 	private Descricao descricao;
-
-	public Transacao() {
-
-	}
 
 	public Long getId() {
 		return id;
@@ -50,7 +46,5 @@ public class Transacao {
 	public void setDescricao(Descricao descricao) {
 		this.descricao = descricao;
 	}
-	
-	
 
 }
