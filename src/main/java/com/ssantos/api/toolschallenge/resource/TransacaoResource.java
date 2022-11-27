@@ -1,5 +1,7 @@
 package com.ssantos.api.toolschallenge.resource;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,4 +24,11 @@ public class TransacaoResource {
 		Transacao obj = this.service.consultarPorId(id);
 		return ResponseEntity.ok().body(obj);
 	}
+	
+	@GetMapping(value = "/todos")
+	public ResponseEntity<List<Transacao>> consultarTodasTransacoes(){
+		List<Transacao> list = service.consultarTodasTransacoes();
+		return ResponseEntity.ok().body(list);
+	}
+	
 }
