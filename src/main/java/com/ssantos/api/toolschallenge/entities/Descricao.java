@@ -1,13 +1,17 @@
 package com.ssantos.api.toolschallenge.entities;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.ssantos.api.toolschallenge.enums.StatusEnum;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "Descricao")
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class Descricao {
 	
 	@Id

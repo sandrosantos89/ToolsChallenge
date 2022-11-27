@@ -1,9 +1,13 @@
 package com.ssantos.api.toolschallenge.entities;
 
+import com.ssantos.api.toolschallenge.enums.TipoEnum;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class Transacao {
@@ -12,7 +16,11 @@ public class Transacao {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String cartao;
-	private FormaPagamento formapagamento;
+
+	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true, optional = false, targetEntity = FormaPagamento.class)
+	private FormaPagamento formaPagamento;
+
+	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true, optional = false, targetEntity = Descricao.class)
 	private Descricao descricao;
 
 	public Long getId() {
@@ -32,11 +40,11 @@ public class Transacao {
 	}
 
 	public FormaPagamento getFormapagamento() {
-		return formapagamento;
+		return formaPagamento;
 	}
 
 	public void setFormapagamento(FormaPagamento formapagamento) {
-		this.formapagamento = formapagamento;
+		this.formaPagamento = formapagamento;
 	}
 
 	public Descricao getDescricao() {

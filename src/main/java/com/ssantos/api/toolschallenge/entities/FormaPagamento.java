@@ -1,13 +1,17 @@
 package com.ssantos.api.toolschallenge.entities;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.ssantos.api.toolschallenge.enums.TipoEnum;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "FormaPagamento")
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class FormaPagamento {
 
 	@Id
@@ -15,7 +19,11 @@ public class FormaPagamento {
 	private Long idFormaPagmento;
 	private Integer parcelas;
 	private TipoEnum tipo;
-	
+
+	public FormaPagamento() {
+
+	}
+
 	public FormaPagamento(Long idFormaPagmento, Integer parcelas, TipoEnum tipo) {
 		super();
 		this.idFormaPagmento = idFormaPagmento;
